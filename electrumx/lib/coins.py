@@ -3911,3 +3911,27 @@ class Quebecoin(AuxPowMixin, Coin):
     TX_PER_BLOCK = 20
     REORG_LIMIT = 2000
     RPC_PORT = 10890
+
+
+class Litedoge(ScryptMixin, Coin):
+    NAME = "LiteDoge"
+    SHORTNAME = "LDOGE"
+    NET = "mainnet"
+    P2PKH_VERBYTE = bytes.fromhex("5a")
+    P2SH_VERBYTES = [bytes.fromhex("08")]
+    WIF_BYTE = bytes.fromhex("ab")
+    GENESIS_HASH = ('0000032101032f27e7cdddb1196353f7'
+                    'fc9e1b6294717432135add95534f67c6')
+    DESERIALIZER = lib_tx.DeserializerTxTimeSegWit
+    DAEMON = daemon.FakeEstimateFeeDaemon
+    ESTIMATE_FEE = 0.001
+    RELAY_FEE = 0.01
+    TX_COUNT = 1
+    TX_COUNT_HEIGHT = 1
+    TX_PER_BLOCK = 1
+    REORG_LIMIT = 5000
+
+    PEERS = [
+    ]
+
+    VALUE_PER_COIN = 100000000
